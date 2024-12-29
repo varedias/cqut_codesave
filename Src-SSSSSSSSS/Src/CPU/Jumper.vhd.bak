@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Jumper is 
+port(
+    EnJum : in std_logic;
+    Addr : in std_logic_vector(7 downto 0); -- 8位地址由于PC只有7位的处理所以我直接设置成为7位而不是需求的12位
+    JUM_CHOSE : out std_logic; -- 用于选择pc地址来自于jumper
+    Out_Addr : out std_logic_vector(7 downto 0) -- 输出地址
+);
+end Jumper;
+
+architecture Behavioral of Jumper is
+begin
+    process(EnJum, Addr)
+    begin
+        -- 默认情况下将JUM_CHOSE设为0
+        JUM_CHOSE <= '0';
+
+        if EnJum = '1' then
+            Out_Addr <= Addr;
+            JUM_CHOSE <= '1'; -- 当EnJum为1时，将JUM_CHOSE设为1
+        else
+            Out_Addr <= (others => '0');
+            -- JUM_CHOSE保持为0（由于已经在上面设置，这里可以省略，但为了清晰还是保留）
+        end if;
+    end process;
+end Behavioral;

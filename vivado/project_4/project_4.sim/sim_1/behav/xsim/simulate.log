@@ -1,0 +1,12 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+A     B     Product
+-------------------------
+0001 * 0010 = 00000010
+1011 * 0101 = 11100111
+1100 * 1001 = 00011100
+1111 * 1111 = 00000001
+0000 * 0011 = 00000000
+0101 * 0110 = 00011110
+1110 * 1110 = 00000100
+$finish called at time : 70 ns : File "E:/vivado/project_4/project_4.srcs/sim_1/new/test_signed_multiplier.v" Line 68

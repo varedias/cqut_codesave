@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/dc_env/exp4/show_sw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module show_sw
+INFO: [VRFC 10-311] analyzing module show_num
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/vivado/dc_env/exp4/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb

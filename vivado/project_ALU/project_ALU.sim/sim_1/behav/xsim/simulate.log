@@ -1,0 +1,28 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Test Add Operation:
+A = 00001010, B = 00000101, ALUOp = 0000 => Result = 00001111, Z = 0, C = 0
+A = 11111111, B = 00000001, ALUOp = 0000 => Result = 00000000, Z = 1, C = 1
+Test Subtract Operation:
+A = 00001010, B = 00000101, ALUOp = 0001 => Result = 00000101, Z = 0, C = 0
+A = 00001000, B = 00001100, ALUOp = 0001 => Result = 11111100, Z = 0, C = 1
+Test Multiply Operation:
+A = 00000101, B = 00000011, ALUOp = 0010 => Result = 00001111, Z = 0, C = 0
+A = 11111111, B = 00000001, ALUOp = 0010 => Result = 11111111, Z = 0, C = 0
+Test AND Operation:
+A = 10101010, B = 11001100, ALUOp = 0011 => Result = 10001000, Z = 0, C = 0
+Test OR Operation:
+A = 10101010, B = 11001100, ALUOp = 0100 => Result = 11101110, Z = 0, C = 0
+Test XOR Operation:
+A = 10101010, B = 11001100, ALUOp = 0101 => Result = 01100110, Z = 0, C = 0
+Test Left Shift Operation:
+A = 00001010, ALUOp = 0110 => Result = 00010100, Z = 0, C = 0
+A = 10000000, ALUOp = 0110 => Result = 00000000, Z = 1, C = 1
+Test Right Shift Operation:
+A = 00001010, ALUOp = 0111 => Result = 00000101, Z = 0, C = 0
+A = 10000000, ALUOp = 0111 => Result = 01000000, Z = 0, C = 0
+Test Add with Carry Operation:
+A = 00001010, B = 00000101, ALUOp = 1000 => Result = 00010000, Z = 0, C = 0
+Test Zero Flag (Z):
+A = 00000000, B = 00000000, ALUOp = 0000 => Result = 00000000, Z = 1, C = 0
+$finish called at time : 150 ns : File "E:/vivado/project_ALU/project_ALU.srcs/sim_1/new/test_ALU.v" Line 120

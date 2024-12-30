@@ -1,10 +1,4 @@
 
---	Author 	: 	LXB
---	Time		:	2024/06/12
---	Project	:	Decoder1
-
-
--- 导包
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;

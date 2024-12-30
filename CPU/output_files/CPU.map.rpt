@@ -1,0 +1,1191 @@
+Analysis & Synthesis report for CPU
+Mon Dec 30 21:14:38 2024
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated
+ 16. Source assignments for RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|altsyncram_dr13:altsyncram1
+ 17. Parameter Settings for User Entity Instance: ROM:inst2|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: LPM2_8:inst6|LPM_MUX:LPM_MUX_component
+ 19. Parameter Settings for User Entity Instance: LPM2_16:inst14|LPM_MUX:LPM_MUX_component
+ 20. Parameter Settings for User Entity Instance: mux3:inst8|LPM_MUX:LPM_MUX_component
+ 21. Parameter Settings for User Entity Instance: LPM2_16:inst28|LPM_MUX:LPM_MUX_component
+ 22. Parameter Settings for User Entity Instance: RAM:inst20|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: LPM2_4:inst9|LPM_MUX:LPM_MUX_component
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. In-System Memory Content Editor Settings
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Dec 30 21:14:38 2024           ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
+; Revision Name                   ; CPU                                             ;
+; Top-level Entity Name           ; CPU                                             ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 162                                             ;
+; Total pins                      ; 53                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 8,192                                           ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; cpu                ; CPU                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-10        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                   ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------+-------------+
+; ROM.vhd                                                            ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/ROM.vhd                                                            ;             ;
+; RAM.vhd                                                            ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/RAM.vhd                                                            ;             ;
+; LPM2_8.vhd                                                         ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd                                                         ;             ;
+; LPM2_4.vhd                                                         ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd                                                         ;             ;
+; LPM2_16.vhd                                                        ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd                                                        ;             ;
+; CPU.bdf                                                            ; yes             ; User Block Diagram/Schematic File            ; E:/Quartus 2/18/Src/Src/CPU/CPU.bdf                                                            ;             ;
+; RegiSlect.vhd                                                      ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/RegiSlect.vhd                                                      ;             ;
+; PC.vhd                                                             ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/PC.vhd                                                             ;             ;
+; Extender.vhd                                                       ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/Extender.vhd                                                       ;             ;
+; Decoder2.vhd                                                       ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/Decoder2.vhd                                                       ;             ;
+; Decoder1.vhd                                                       ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/Decoder1.vhd                                                       ;             ;
+; ALU.vhd                                                            ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/ALU.vhd                                                            ;             ;
+; AC_A.vhd                                                           ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/AC_A.vhd                                                           ;             ;
+; cpu_rom.mif                                                        ; yes             ; User Memory Initialization File              ; E:/Quartus 2/18/Src/Src/CPU/cpu_rom.mif                                                        ;             ;
+; cpu_ram.mif                                                        ; yes             ; User Memory Initialization File              ; E:/Quartus 2/18/Src/Src/CPU/cpu_ram.mif                                                        ;             ;
+; output_files/Digital.vhd                                           ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd                                           ;             ;
+; output_files/Bit2TO16.vhd                                          ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/output_files/Bit2TO16.vhd                                          ;             ;
+; mux3.vhd                                                           ; yes             ; User Wizard-Generated File                   ; E:/Quartus 2/18/Src/Src/CPU/mux3.vhd                                                           ;             ;
+; ALU_SAVE.vhd                                                       ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/ALU_SAVE.vhd                                                       ;             ;
+; RT.vhd                                                             ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/RT.vhd                                                             ;             ;
+; BEQ.vhd                                                            ; yes             ; User VHDL File                               ; E:/Quartus 2/18/Src/Src/CPU/BEQ.vhd                                                            ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/altsyncram.tdf                               ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc                        ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.inc                                  ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_decode.inc                               ;             ;
+; aglobal180.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/aglobal180.inc                               ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/a_rdenreg.inc                                ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/altrom.inc                                   ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/altram.inc                                   ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/altdpram.inc                                 ;             ;
+; db/altsyncram_im14.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf                                             ;             ;
+; lpm_mux.tdf                                                        ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.tdf                                  ;             ;
+; muxlut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/muxlut.inc                                   ;             ;
+; bypassff.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/bypassff.inc                                 ;             ;
+; altshift.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/altshift.inc                                 ;             ;
+; db/mux_b0e.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/mux_b0e.tdf                                                     ;             ;
+; db/mux_q1e.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/mux_q1e.tdf                                                     ;             ;
+; db/altsyncram_ge44.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf                                             ;             ;
+; db/altsyncram_dr13.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_dr13.tdf                                             ;             ;
+; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                          ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv            ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_rom_sr.vhd                               ;             ;
+; db/mux_70e.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; E:/Quartus 2/18/Src/Src/CPU/db/mux_70e.tdf                                                     ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_hub.vhd                                  ; altera_sld  ;
+; db/ip/sldd5822a23/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_jtag_hub.vhd                             ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 231                      ;
+;                                             ;                          ;
+; Combinational ALUT usage for logic          ; 368                      ;
+;     -- 7 input functions                    ; 3                        ;
+;     -- 6 input functions                    ; 70                       ;
+;     -- 5 input functions                    ; 96                       ;
+;     -- 4 input functions                    ; 75                       ;
+;     -- <=3 input functions                  ; 124                      ;
+;                                             ;                          ;
+; Dedicated logic registers                   ; 162                      ;
+;                                             ;                          ;
+; I/O pins                                    ; 53                       ;
+; Total MLAB memory bits                      ; 0                        ;
+; Total block memory bits                     ; 8192                     ;
+;                                             ;                          ;
+; Total DSP Blocks                            ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
+; Maximum fan-out                             ; 173                      ;
+; Total fan-out                               ; 2696                     ;
+; Average fan-out                             ; 3.98                     ;
++---------------------------------------------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                             ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |CPU                                                                                                                                    ; 368 (2)             ; 162 (0)                   ; 8192              ; 0          ; 53   ; 0            ; |CPU                                                                                                                                                                                                                                                                                                                                            ; CPU                               ; work         ;
+;    |AC_A:RS|                                                                                                                            ; 0 (0)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|AC_A:RS                                                                                                                                                                                                                                                                                                                                    ; AC_A                              ; work         ;
+;    |ALU:inst38|                                                                                                                         ; 92 (92)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|ALU:inst38                                                                                                                                                                                                                                                                                                                                 ; ALU                               ; work         ;
+;    |ALU_SAVE:inst25|                                                                                                                    ; 5 (5)               ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|ALU_SAVE:inst25                                                                                                                                                                                                                                                                                                                            ; ALU_SAVE                          ; work         ;
+;    |BEQ:inst22|                                                                                                                         ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|BEQ:inst22                                                                                                                                                                                                                                                                                                                                 ; BEQ                               ; work         ;
+;    |DIGITAL:inst10|                                                                                                                     ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|DIGITAL:inst10                                                                                                                                                                                                                                                                                                                             ; DIGITAL                           ; work         ;
+;    |DIGITAL:inst11|                                                                                                                     ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|DIGITAL:inst11                                                                                                                                                                                                                                                                                                                             ; DIGITAL                           ; work         ;
+;    |DIGITAL:inst1|                                                                                                                      ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|DIGITAL:inst1                                                                                                                                                                                                                                                                                                                              ; DIGITAL                           ; work         ;
+;    |Decoder1:inst23|                                                                                                                    ; 13 (13)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|Decoder1:inst23                                                                                                                                                                                                                                                                                                                            ; Decoder1                          ; work         ;
+;    |LPM2_16:inst14|                                                                                                                     ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_16:inst14                                                                                                                                                                                                                                                                                                                             ; LPM2_16                           ; work         ;
+;       |lpm_mux:LPM_MUX_component|                                                                                                       ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_16:inst14|lpm_mux:LPM_MUX_component                                                                                                                                                                                                                                                                                                   ; lpm_mux                           ; work         ;
+;          |mux_q1e:auto_generated|                                                                                                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_16:inst14|lpm_mux:LPM_MUX_component|mux_q1e:auto_generated                                                                                                                                                                                                                                                                            ; mux_q1e                           ; work         ;
+;    |LPM2_4:inst9|                                                                                                                       ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_4:inst9                                                                                                                                                                                                                                                                                                                               ; LPM2_4                            ; work         ;
+;       |lpm_mux:LPM_MUX_component|                                                                                                       ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_4:inst9|lpm_mux:LPM_MUX_component                                                                                                                                                                                                                                                                                                     ; lpm_mux                           ; work         ;
+;          |mux_70e:auto_generated|                                                                                                       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|LPM2_4:inst9|lpm_mux:LPM_MUX_component|mux_70e:auto_generated                                                                                                                                                                                                                                                                              ; mux_70e                           ; work         ;
+;    |PC:inst|                                                                                                                            ; 18 (18)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|PC:inst                                                                                                                                                                                                                                                                                                                                    ; PC                                ; work         ;
+;    |RAM:inst20|                                                                                                                         ; 42 (0)              ; 46 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |CPU|RAM:inst20                                                                                                                                                                                                                                                                                                                                 ; RAM                               ; work         ;
+;       |altsyncram:altsyncram_component|                                                                                                 ; 42 (0)              ; 46 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |CPU|RAM:inst20|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                                 ; altsyncram                        ; work         ;
+;          |altsyncram_ge44:auto_generated|                                                                                               ; 42 (0)              ; 46 (0)                    ; 4096              ; 0          ; 0    ; 0            ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated                                                                                                                                                                                                                                                                  ; altsyncram_ge44                   ; work         ;
+;             |altsyncram_dr13:altsyncram1|                                                                                               ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|altsyncram_dr13:altsyncram1                                                                                                                                                                                                                                      ; altsyncram_dr13                   ; work         ;
+;             |sld_mod_ram_rom:mgl_prim2|                                                                                                 ; 42 (24)             ; 46 (37)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                                                        ; sld_mod_ram_rom                   ; work         ;
+;                |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                     ; 18 (18)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                                                     ; sld_rom_sr                        ; work         ;
+;    |ROM:inst2|                                                                                                                          ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |CPU|ROM:inst2                                                                                                                                                                                                                                                                                                                                  ; ROM                               ; work         ;
+;       |altsyncram:altsyncram_component|                                                                                                 ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |CPU|ROM:inst2|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                                  ; altsyncram                        ; work         ;
+;          |altsyncram_im14:auto_generated|                                                                                               ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |CPU|ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated                                                                                                                                                                                                                                                                   ; altsyncram_im14                   ; work         ;
+;    |RT:inst13|                                                                                                                          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|RT:inst13                                                                                                                                                                                                                                                                                                                                  ; RT                                ; work         ;
+;    |mux3:inst8|                                                                                                                         ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|mux3:inst8                                                                                                                                                                                                                                                                                                                                 ; mux3                              ; work         ;
+;       |lpm_mux:LPM_MUX_component|                                                                                                       ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|mux3:inst8|lpm_mux:LPM_MUX_component                                                                                                                                                                                                                                                                                                       ; lpm_mux                           ; work         ;
+;          |mux_q1e:auto_generated|                                                                                                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|mux3:inst8|lpm_mux:LPM_MUX_component|mux_q1e:auto_generated                                                                                                                                                                                                                                                                                ; mux_q1e                           ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 98 (1)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 97 (0)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 97 (0)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 97 (1)              ; 87 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 96 (0)              ; 82 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 96 (64)             ; 82 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 14 (14)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                             ;
++------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                                                                                                             ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------+
+; RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|altsyncram_dr13:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; ../cpu_ram.mif ;
+; ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|ALTSYNCRAM                              ; AUTO ; ROM            ; 256          ; 16           ; --           ; --           ; 4096 ; ../cpu_rom.mif ;
++------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                      ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                          ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
+; Altera ; ROM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |CPU|ROM:inst2                                                                                                                                                                                                                                                           ; ROM.vhd         ;
+; Altera ; LPM_MUX      ; 18.0    ; N/A          ; N/A          ; |CPU|mux3:inst8                                                                                                                                                                                                                                                          ; mux3.vhd        ;
+; Altera ; LPM_MUX      ; 18.0    ; N/A          ; N/A          ; |CPU|LPM2_16:inst14                                                                                                                                                                                                                                                      ; LPM2_16.vhd     ;
+; Altera ; RAM: 1-PORT  ; 18.0    ; N/A          ; N/A          ; |CPU|RAM:inst20                                                                                                                                                                                                                                                          ; RAM.vhd         ;
+; Altera ; LPM_MUX      ; 18.0    ; N/A          ; N/A          ; |CPU|LPM2_16:inst28                                                                                                                                                                                                                                                      ; LPM2_16.vhd     ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++-----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal  ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------+------------------------+
+; RT:inst13|A[4]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[5]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[6]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[7]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[0]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[1]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[2]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[3]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[8]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[9]                                      ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[10]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[11]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[12]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[13]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[14]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; RT:inst13|A[15]                                     ; Decoder1:inst23|Mux4 ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                      ;                        ;
++-----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                          ;
++------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                                      ; Reason for Removal                     ;
++------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; AC_A:RS|A[2..15]                                                                                                                   ; Stuck at GND due to stuck port data_in ;
+; RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 15                                                                                             ;                                        ;
++------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 162   ;
+; Number of registers using Synchronous Clear  ; 7     ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 63    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 102   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 3       ;
+; Total number of inverted registers = 2                                                                                                                                                                                                                                                                                          ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                                                                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[12]                                                                                                                                                                                                                                 ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4]                                                                                                                                                                                                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                                                                                                                                                                                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CPU|PC:inst|PC_out[2]~reg0                                                                                                                                                                                                                                                                                                                                   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[2]                                                                                                                                                                                   ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 48 LEs               ; 20 LEs                 ; Yes        ; |CPU|RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[3]                                                                                                                                                                                        ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 27 LEs               ; 3 LEs                  ; Yes        ; |CPU|ALU_SAVE:inst25|A[9]                                                                                                                                                                                                                                                                                                                                     ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 27 LEs               ; 3 LEs                  ; Yes        ; |CPU|ALU_SAVE:inst25|A[15]                                                                                                                                                                                                                                                                                                                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CPU|mux3:inst8|lpm_mux:LPM_MUX_component|mux_q1e:auto_generated|l1_w0_n0_mux_dataout                                                                                                                                                                                                                                                                         ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |CPU|LPM2_4:inst9|lpm_mux:LPM_MUX_component|mux_70e:auto_generated|l1_w0_n0_mux_dataout                                                                                                                                                                                                                                                                       ;
+; 14:1               ; 3 bits    ; 27 LEs        ; 24 LEs               ; 3 LEs                  ; No         ; |CPU|ALU:inst38|Mux11                                                                                                                                                                                                                                                                                                                                         ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 16 LEs               ; 2 LEs                  ; No         ; |CPU|ALU:inst38|Mux14                                                                                                                                                                                                                                                                                                                                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irsr_reg[2]                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[0]                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[1]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]              ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|word_counter[0] ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 64 LEs               ; 24 LEs                 ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[2]                      ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |CPU|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|WORD_SR[1]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Source assignments for ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------+
+; Assignment                      ; Value              ; From ; To                                ;
++---------------------------------+--------------------+------+-----------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                 ;
++---------------------------------+--------------------+------+-----------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|altsyncram_dr13:altsyncram1 ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:inst2|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------+
+; Parameter Name                     ; Value                ; Type                       ;
++------------------------------------+----------------------+----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                    ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                    ;
+; WIDTH_A                            ; 16                   ; Signed Integer             ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer             ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer             ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                    ;
+; WIDTH_B                            ; 1                    ; Signed Integer             ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer             ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer             ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                    ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                    ;
+; INIT_FILE                          ; ../cpu_rom.mif       ; Untyped                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer             ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer             ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                    ;
+; CBXI_PARAMETER                     ; altsyncram_im14      ; Untyped                    ;
++------------------------------------+----------------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM2_8:inst6|LPM_MUX:LPM_MUX_component ;
++------------------------+-----------+------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                           ;
++------------------------+-----------+------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                 ;
+; LPM_WIDTH              ; 8         ; Signed Integer                                 ;
+; LPM_SIZE               ; 2         ; Signed Integer                                 ;
+; LPM_WIDTHS             ; 1         ; Signed Integer                                 ;
+; LPM_PIPELINE           ; 0         ; Signed Integer                                 ;
+; CBXI_PARAMETER         ; mux_b0e   ; Untyped                                        ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                        ;
++------------------------+-----------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM2_16:inst14|LPM_MUX:LPM_MUX_component ;
++------------------------+-----------+--------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                             ;
++------------------------+-----------+--------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                   ;
+; LPM_WIDTH              ; 16        ; Signed Integer                                   ;
+; LPM_SIZE               ; 2         ; Signed Integer                                   ;
+; LPM_WIDTHS             ; 1         ; Signed Integer                                   ;
+; LPM_PIPELINE           ; 0         ; Signed Integer                                   ;
+; CBXI_PARAMETER         ; mux_q1e   ; Untyped                                          ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                          ;
++------------------------+-----------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux3:inst8|LPM_MUX:LPM_MUX_component ;
++------------------------+-----------+----------------------------------------------+
+; Parameter Name         ; Value     ; Type                                         ;
++------------------------+-----------+----------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                               ;
+; LPM_WIDTH              ; 16        ; Signed Integer                               ;
+; LPM_SIZE               ; 2         ; Signed Integer                               ;
+; LPM_WIDTHS             ; 1         ; Signed Integer                               ;
+; LPM_PIPELINE           ; 0         ; Signed Integer                               ;
+; CBXI_PARAMETER         ; mux_q1e   ; Untyped                                      ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                      ;
++------------------------+-----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM2_16:inst28|LPM_MUX:LPM_MUX_component ;
++------------------------+-----------+--------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                             ;
++------------------------+-----------+--------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                   ;
+; LPM_WIDTH              ; 16        ; Signed Integer                                   ;
+; LPM_SIZE               ; 2         ; Signed Integer                                   ;
+; LPM_WIDTHS             ; 1         ; Signed Integer                                   ;
+; LPM_PIPELINE           ; 0         ; Signed Integer                                   ;
+; CBXI_PARAMETER         ; mux_q1e   ; Untyped                                          ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                          ;
++------------------------+-----------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:inst20|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------+
+; Parameter Name                     ; Value                ; Type                        ;
++------------------------------------+----------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                     ;
+; WIDTH_A                            ; 16                   ; Signed Integer              ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer              ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer              ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WIDTH_B                            ; 1                    ; Signed Integer              ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer              ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; INIT_FILE                          ; ../cpu_ram.mif       ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer              ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_ge44      ; Untyped                     ;
++------------------------------------+----------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM2_4:inst9|LPM_MUX:LPM_MUX_component ;
++------------------------+-----------+------------------------------------------------+
+; Parameter Name         ; Value     ; Type                                           ;
++------------------------+-----------+------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON        ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS   ; OFF       ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS    ; ON        ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS ; OFF       ; IGNORE_CASCADE                                 ;
+; LPM_WIDTH              ; 4         ; Signed Integer                                 ;
+; LPM_SIZE               ; 2         ; Signed Integer                                 ;
+; LPM_WIDTHS             ; 1         ; Signed Integer                                 ;
+; LPM_PIPELINE           ; 0         ; Signed Integer                                 ;
+; CBXI_PARAMETER         ; mux_70e   ; Untyped                                        ;
+; DEVICE_FAMILY          ; Cyclone V ; Untyped                                        ;
++------------------------+-----------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                       ;
++-------------------------------------------+--------------------------------------------+
+; Name                                      ; Value                                      ;
++-------------------------------------------+--------------------------------------------+
+; Number of entity instances                ; 2                                          ;
+; Entity Instance                           ; ROM:inst2|altsyncram:altsyncram_component  ;
+;     -- OPERATION_MODE                     ; ROM                                        ;
+;     -- WIDTH_A                            ; 16                                         ;
+;     -- NUMWORDS_A                         ; 256                                        ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                     ;
+;     -- WIDTH_B                            ; 1                                          ;
+;     -- NUMWORDS_B                         ; 0                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ;
+; Entity Instance                           ; RAM:inst20|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                ;
+;     -- WIDTH_A                            ; 16                                         ;
+;     -- NUMWORDS_A                         ; 256                                        ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                     ;
+;     -- WIDTH_B                            ; 1                                          ;
+;     -- NUMWORDS_B                         ; 0                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ;
++-------------------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; In-System Memory Content Editor Settings                                                                                              ;
++----------------+-------------+-------+-------+------------+---------------------------------------------------------------------------+
+; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                                        ;
++----------------+-------------+-------+-------+------------+---------------------------------------------------------------------------+
+; 0              ; RAMc        ; 16    ; 256   ; Read/Write ; RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated ;
++----------------+-------------+-------+-------+------------+---------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 75                          ;
+;     CLR               ; 14                          ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 7                           ;
+;     ENA CLR SLD       ; 8                           ;
+;     ENA SLD           ; 16                          ;
+;     plain             ; 19                          ;
+; arriav_lcell_comb     ; 271                         ;
+;     arith             ; 41                          ;
+;         1 data inputs ; 16                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 2                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 227                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 45                          ;
+;         5 data inputs ; 74                          ;
+;         6 data inputs ; 55                          ;
+; boundary_port         ; 80                          ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.33                        ;
++-----------------------+-----------------------------+
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub ;
++-----------------------+------------------------------------------+
+; Type                  ; Count                                    ;
++-----------------------+------------------------------------------+
+; arriav_ff             ; 87                                       ;
+;     CLR               ; 4                                        ;
+;     ENA               ; 30                                       ;
+;     ENA CLR           ; 29                                       ;
+;     ENA CLR SLD       ; 1                                        ;
+;     SCLR              ; 7                                        ;
+;     plain             ; 16                                       ;
+; arriav_lcell_comb     ; 98                                       ;
+;     normal            ; 98                                       ;
+;         0 data inputs ; 1                                        ;
+;         1 data inputs ; 4                                        ;
+;         2 data inputs ; 19                                       ;
+;         3 data inputs ; 24                                       ;
+;         4 data inputs ; 15                                       ;
+;         5 data inputs ; 20                                       ;
+;         6 data inputs ; 15                                       ;
+; boundary_port         ; 103                                      ;
+;                       ;                                          ;
+; Max LUT depth         ; 3.00                                     ;
+; Average LUT depth     ; 1.43                                     ;
++-----------------------+------------------------------------------+
+
+
++---------------------------------+
+; Elapsed Time Per Partition      ;
++------------------+--------------+
+; Partition Name   ; Elapsed Time ;
++------------------+--------------+
+; Top              ; 00:00:00     ;
+; sld_hub:auto_hub ; 00:00:00     ;
++------------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+    Info: Processing started: Mon Dec 30 21:14:18 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (125092): Tcl Script File lpm_4.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE lpm_4.qip
+Warning (125092): Tcl Script File LPM_16.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE LPM_16.qip
+Warning (125092): Tcl Script File lpm16.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE lpm16.qip
+Warning (125092): Tcl Script File lpm8.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE lpm8.qip
+Warning (125092): Tcl Script File lpm33.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE lpm33.qip
+Warning (125092): Tcl Script File R_decoder.qip not found
+    Info (125063): set_global_assignment -name QIP_FILE R_decoder.qip
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: rom-SYN File: E:/Quartus 2/18/Src/Src/CPU/ROM.vhd Line: 52
+    Info (12023): Found entity 1: ROM File: E:/Quartus 2/18/Src/Src/CPU/ROM.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: ram-SYN File: E:/Quartus 2/18/Src/Src/CPU/RAM.vhd Line: 55
+    Info (12023): Found entity 1: RAM File: E:/Quartus 2/18/Src/Src/CPU/RAM.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file lpm4_16.vhd
+    Info (12022): Found design unit 1: lpm4_16-SYN File: E:/Quartus 2/18/Src/Src/CPU/LPM4_16.vhd Line: 55
+    Info (12023): Found entity 1: LPM4_16 File: E:/Quartus 2/18/Src/Src/CPU/LPM4_16.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file lpm2_8.vhd
+    Info (12022): Found design unit 1: lpm2_8-SYN File: E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd Line: 53
+    Info (12023): Found entity 1: LPM2_8 File: E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file lpm2_4.vhd
+    Info (12022): Found design unit 1: lpm2_4-SYN File: E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd Line: 53
+    Info (12023): Found entity 1: LPM2_4 File: E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file lpm2_2.vhd
+    Info (12022): Found design unit 1: lpm2_2-SYN File: E:/Quartus 2/18/Src/Src/CPU/LPM2_2.vhd Line: 53
+    Info (12023): Found entity 1: LPM2_2 File: E:/Quartus 2/18/Src/Src/CPU/LPM2_2.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file lpm2_16.vhd
+    Info (12022): Found design unit 1: lpm2_16-SYN File: E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd Line: 53
+    Info (12023): Found entity 1: LPM2_16 File: E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.bdf
+    Info (12023): Found entity 1: CPU
+Info (12021): Found 2 design units, including 1 entities, in source file seg7_16b.vhd
+    Info (12022): Found design unit 1: seg7_16b-behav File: E:/Quartus 2/18/Src/Src/CPU/seg7_16b.vhd Line: 18
+    Info (12023): Found entity 1: seg7_16b File: E:/Quartus 2/18/Src/Src/CPU/seg7_16b.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file regislect.vhd
+    Info (12022): Found design unit 1: RegiSlect-BEHAVE File: E:/Quartus 2/18/Src/Src/CPU/RegiSlect.vhd Line: 14
+    Info (12023): Found entity 1: RegiSlect File: E:/Quartus 2/18/Src/Src/CPU/RegiSlect.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
+    Info (12022): Found design unit 1: PC-BEHAVE File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 18
+    Info (12023): Found entity 1: PC File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file extender.vhd
+    Info (12022): Found design unit 1: Extender-BEHAVE File: E:/Quartus 2/18/Src/Src/CPU/Extender.vhd Line: 16
+    Info (12023): Found entity 1: Extender File: E:/Quartus 2/18/Src/Src/CPU/Extender.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file decoder2.vhd
+    Info (12022): Found design unit 1: Decoder2-BEHAVE File: E:/Quartus 2/18/Src/Src/CPU/Decoder2.vhd Line: 15
+    Info (12023): Found entity 1: Decoder2 File: E:/Quartus 2/18/Src/Src/CPU/Decoder2.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file decoder1.vhd
+    Info (12022): Found design unit 1: Decoder1-func File: E:/Quartus 2/18/Src/Src/CPU/Decoder1.vhd Line: 25
+    Info (12023): Found entity 1: Decoder1 File: E:/Quartus 2/18/Src/Src/CPU/Decoder1.vhd Line: 5
+Warning (12019): Can't analyze file -- file CPU.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-func File: E:/Quartus 2/18/Src/Src/CPU/ALU.vhd Line: 15
+    Info (12023): Found entity 1: ALU File: E:/Quartus 2/18/Src/Src/CPU/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ac_a.vhd
+    Info (12022): Found design unit 1: AC_A-accu File: E:/Quartus 2/18/Src/Src/CPU/AC_A.vhd Line: 16
+    Info (12023): Found entity 1: AC_A File: E:/Quartus 2/18/Src/Src/CPU/AC_A.vhd Line: 7
+Warning (12019): Can't analyze file -- file double.vhd is missing
+Warning (12019): Can't analyze file -- file Decd.vhd is missing
+Warning (12019): Can't analyze file -- file ALU_16B.vhd is missing
+Warning (12019): Can't analyze file -- file R_DECD.vhd is missing
+Warning (12019): Can't analyze file -- file op_do.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/digital.vhd
+    Info (12022): Found design unit 1: DIGITAL-Behavioral File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 15
+    Info (12023): Found entity 1: DIGITAL File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/bit2to16.vhd
+    Info (12022): Found design unit 1: Bit2TO16-BEHAVIORAL File: E:/Quartus 2/18/Src/Src/CPU/output_files/Bit2TO16.vhd Line: 11
+    Info (12023): Found entity 1: Bit2TO16 File: E:/Quartus 2/18/Src/Src/CPU/output_files/Bit2TO16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux3.vhd
+    Info (12022): Found design unit 1: mux3-SYN File: E:/Quartus 2/18/Src/Src/CPU/mux3.vhd Line: 53
+    Info (12023): Found entity 1: mux3 File: E:/Quartus 2/18/Src/Src/CPU/mux3.vhd Line: 42
+Info (12021): Found 2 design units, including 1 entities, in source file jumper.vhd
+    Info (12022): Found design unit 1: Jumper-Behavioral File: E:/Quartus 2/18/Src/Src/CPU/Jumper.vhd Line: 13
+    Info (12023): Found entity 1: Jumper File: E:/Quartus 2/18/Src/Src/CPU/Jumper.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file alu_save.vhd
+    Info (12022): Found design unit 1: ALU_SAVE-accu File: E:/Quartus 2/18/Src/Src/CPU/ALU_SAVE.vhd Line: 19
+    Info (12023): Found entity 1: ALU_SAVE File: E:/Quartus 2/18/Src/Src/CPU/ALU_SAVE.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rt.vhd
+    Info (12022): Found design unit 1: RT-accu File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 14
+    Info (12023): Found entity 1: RT File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file beq.vhd
+    Info (12022): Found design unit 1: BEQ-Behavioral File: E:/Quartus 2/18/Src/Src/CPU/BEQ.vhd Line: 17
+    Info (12023): Found entity 1: BEQ File: E:/Quartus 2/18/Src/Src/CPU/BEQ.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file saver.vhd
+    Info (12022): Found design unit 1: SAVER-accu File: E:/Quartus 2/18/Src/Src/CPU/SAVER.vhd Line: 13
+    Info (12023): Found entity 1: SAVER File: E:/Quartus 2/18/Src/Src/CPU/SAVER.vhd Line: 5
+Info (12127): Elaborating entity "cpu" for the top level hierarchy
+Info (12128): Elaborating entity "Decoder1" for hierarchy "Decoder1:inst23"
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:inst2"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:inst2|altsyncram:altsyncram_component" File: E:/Quartus 2/18/Src/Src/CPU/ROM.vhd Line: 59
+Info (12130): Elaborated megafunction instantiation "ROM:inst2|altsyncram:altsyncram_component" File: E:/Quartus 2/18/Src/Src/CPU/ROM.vhd Line: 59
+Info (12133): Instantiated megafunction "ROM:inst2|altsyncram:altsyncram_component" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/ROM.vhd Line: 59
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../cpu_rom.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_im14.tdf
+    Info (12023): Found entity 1: altsyncram_im14 File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_im14" for hierarchy "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "PC" for hierarchy "PC:inst"
+Info (12128): Elaborating entity "LPM2_8" for hierarchy "LPM2_8:inst6"
+Info (12128): Elaborating entity "LPM_MUX" for hierarchy "LPM2_8:inst6|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd Line: 87
+Info (12130): Elaborated megafunction instantiation "LPM2_8:inst6|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd Line: 87
+Info (12133): Instantiated megafunction "LPM2_8:inst6|LPM_MUX:LPM_MUX_component" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/LPM2_8.vhd Line: 87
+    Info (12134): Parameter "LPM_WIDTH" = "8"
+    Info (12134): Parameter "LPM_SIZE" = "2"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_PIPELINE" = "0"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_MUX"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_b0e.tdf
+    Info (12023): Found entity 1: mux_b0e File: E:/Quartus 2/18/Src/Src/CPU/db/mux_b0e.tdf Line: 22
+Info (12128): Elaborating entity "mux_b0e" for hierarchy "LPM2_8:inst6|LPM_MUX:LPM_MUX_component|mux_b0e:auto_generated" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.tdf Line: 86
+Info (12128): Elaborating entity "BEQ" for hierarchy "BEQ:inst22"
+Info (12128): Elaborating entity "ALU_SAVE" for hierarchy "ALU_SAVE:inst25"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:inst38"
+Warning (10492): VHDL Process Statement warning at ALU.vhd(26): signal "S" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/ALU.vhd Line: 26
+Info (12128): Elaborating entity "AC_A" for hierarchy "AC_A:RS"
+Info (12128): Elaborating entity "RegiSlect" for hierarchy "RegiSlect:inst18"
+Info (12128): Elaborating entity "Bit2TO16" for hierarchy "Bit2TO16:inst7"
+Info (12128): Elaborating entity "LPM2_16" for hierarchy "LPM2_16:inst14"
+Info (12128): Elaborating entity "LPM_MUX" for hierarchy "LPM2_16:inst14|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd Line: 103
+Info (12130): Elaborated megafunction instantiation "LPM2_16:inst14|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd Line: 103
+Info (12133): Instantiated megafunction "LPM2_16:inst14|LPM_MUX:LPM_MUX_component" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/LPM2_16.vhd Line: 103
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+    Info (12134): Parameter "LPM_SIZE" = "2"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_PIPELINE" = "0"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_MUX"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_q1e.tdf
+    Info (12023): Found entity 1: mux_q1e File: E:/Quartus 2/18/Src/Src/CPU/db/mux_q1e.tdf Line: 22
+Info (12128): Elaborating entity "mux_q1e" for hierarchy "LPM2_16:inst14|LPM_MUX:LPM_MUX_component|mux_q1e:auto_generated" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.tdf Line: 86
+Info (12128): Elaborating entity "Extender" for hierarchy "Extender:inst12"
+Warning (10036): Verilog HDL or VHDL warning at Extender.vhd(17): object "TEMP" assigned a value but never read File: E:/Quartus 2/18/Src/Src/CPU/Extender.vhd Line: 17
+Warning (10492): VHDL Process Statement warning at Extender.vhd(23): signal "went" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/Extender.vhd Line: 23
+Info (12128): Elaborating entity "RT" for hierarchy "RT:inst13"
+Warning (10631): VHDL Process Statement warning at RT.vhd(16): inferring latch(es) for signal or variable "A", which holds its previous value in one or more paths through the process File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[0]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[1]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[2]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[3]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[4]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[5]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[6]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[7]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[8]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[9]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[10]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[11]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[12]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[13]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[14]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (10041): Inferred latch for "A[15]" at RT.vhd(16) File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+Info (12128): Elaborating entity "mux3" for hierarchy "mux3:inst8"
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:inst20"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:inst20|altsyncram:altsyncram_component" File: E:/Quartus 2/18/Src/Src/CPU/RAM.vhd Line: 62
+Info (12130): Elaborated megafunction instantiation "RAM:inst20|altsyncram:altsyncram_component" File: E:/Quartus 2/18/Src/Src/CPU/RAM.vhd Line: 62
+Info (12133): Instantiated megafunction "RAM:inst20|altsyncram:altsyncram_component" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/RAM.vhd Line: 62
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../cpu_ram.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=RAMc"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ge44.tdf
+    Info (12023): Found entity 1: altsyncram_ge44 File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_ge44" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dr13.tdf
+    Info (12023): Found entity 1: altsyncram_dr13 File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_dr13.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_dr13" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|altsyncram_dr13:altsyncram1" File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf Line: 37
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2" File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf Line: 38
+Info (12130): Elaborated megafunction instantiation "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2" File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf Line: 38
+Info (12133): Instantiated megafunction "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_ge44.tdf Line: 38
+    Info (12134): Parameter "CVALUE" = "0000000000000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1380011363"
+    Info (12134): Parameter "NUMWORDS" = "256"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "5"
+    Info (12134): Parameter "WIDTH_WORD" = "16"
+    Info (12134): Parameter "WIDTHAD" = "8"
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "RAM:inst20|altsyncram:altsyncram_component|altsyncram_ge44:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (12128): Elaborating entity "LPM2_4" for hierarchy "LPM2_4:inst9"
+Info (12128): Elaborating entity "LPM_MUX" for hierarchy "LPM2_4:inst9|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd Line: 79
+Info (12130): Elaborated megafunction instantiation "LPM2_4:inst9|LPM_MUX:LPM_MUX_component" File: E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd Line: 79
+Info (12133): Instantiated megafunction "LPM2_4:inst9|LPM_MUX:LPM_MUX_component" with the following parameter: File: E:/Quartus 2/18/Src/Src/CPU/LPM2_4.vhd Line: 79
+    Info (12134): Parameter "LPM_WIDTH" = "4"
+    Info (12134): Parameter "LPM_SIZE" = "2"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_PIPELINE" = "0"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_MUX"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_70e.tdf
+    Info (12023): Found entity 1: mux_70e File: E:/Quartus 2/18/Src/Src/CPU/db/mux_70e.tdf Line: 22
+Info (12128): Elaborating entity "mux_70e" for hierarchy "LPM2_4:inst9|LPM_MUX:LPM_MUX_component|mux_70e:auto_generated" File: c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.tdf Line: 86
+Info (12128): Elaborating entity "Decoder2" for hierarchy "Decoder2:inst21"
+Info (12128): Elaborating entity "DIGITAL" for hierarchy "DIGITAL:inst1"
+Warning (10492): VHDL Process Statement warning at Digital.vhd(23): signal "BLANK" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at Digital.vhd(26): signal "BLANK" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at Digital.vhd(26): signal "TEST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at Digital.vhd(29): signal "BLANK" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at Digital.vhd(29): signal "TEST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/Quartus 2/18/Src/Src/CPU/output_files/Digital.vhd Line: 29
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2024.12.30.21:14:29 Progress: Loading sldd5822a23/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldd5822a23/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: E:/Quartus 2/18/Src/Src/CPU/db/ip/sldd5822a23/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer Decoder1:inst23|Mux5 File: E:/Quartus 2/18/Src/Src/CPU/Decoder1.vhd Line: 29
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+    Warning (13035): Inserted always-enabled tri-state buffer between "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" and its non-tri-state driver. File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[0]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[1]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[2]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[3]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[4]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[5]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[6]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+    Warning (13047): Converted the fan-out from the tri-state buffer "PC:inst|PC_out[7]" to the node "ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[0]" into an OR gate File: E:/Quartus 2/18/Src/Src/CPU/PC.vhd Line: 24
+Warning (13012): Latch RT:inst13|A[4] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[5] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[6] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[7] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[0] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[1] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[2] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[3] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[8] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[9] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[10] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[11] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[12] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[13] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[14] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13012): Latch RT:inst13|A[15] has unsafe behavior File: E:/Quartus 2/18/Src/Src/CPU/RT.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ROM:inst2|altsyncram:altsyncram_component|altsyncram_im14:auto_generated|q_a[12] File: E:/Quartus 2/18/Src/Src/CPU/db/altsyncram_im14.tdf Line: 31
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "RQA1[6]" is stuck at VCC
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 521 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 431 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 76 warnings
+    Info: Peak virtual memory: 4954 megabytes
+    Info: Processing ended: Mon Dec 30 21:14:38 2024
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:09
+
+

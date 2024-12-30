@@ -1,0 +1,53 @@
+
+--	Author 	: 	LXB
+--	Time		:	2024/06/12
+--	Project	:	Decoder1
+
+
+-- 导包
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+-- 实体 Decoder1
+ENTITY Decoder1 IS
+PORT(
+		op		 :		IN  STD_LOGIC_VECTOR(3 DOWNTO 0);	-- 操作码  
+		s		 : 	OUT STD_LOGIC_VECTOR(3 DOWNTO 0);	-- 数位选择 s3 s2 s1 s0
+		WE 	 : 	OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	-- 0，数据写入RAM；		1，读取RAM数据
+		Smux 	 : 	OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	--	0，时钟打开；			1，时钟停止
+		Exop	 : 	OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	--	0，无符号立即数扩展；	1，有符号立即数扩展
+		Lmux	 : 	OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	--	0，ALU结果写入AC；		1，RAM数据读入AC
+		PC_1	 :		OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	-- 0，PC地址加1；			1，PC为跳转地址
+		jump	 :		OUT STD_LOGIC_VECTOR(0 DOWNTO 0);	-- 0，上次PC输出放入PC；	1，jump地址放入PC
+		R_tytle:		OUT STD_LOGIC_VECTOR(0 DOWNTO 0)		--	0，不是R型指令；			1，R型指令
+		);
+END Decoder1;
+
+-- 结构体 func
+ARCHITECTURE func OF Decoder1 IS
+	-- 变量声明 func
+
+-- 功能 func
+BEGIN
+	PROCESS(op)	-- 进程 变量输入
+	BEGIN
+	 CASE op IS
+	 --R型
+			WHEN "0000"=>s<="0000";WE<="1";Smux<="0";Exop<="0";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="1"; -- r型指令
+	 --立即数
+			WHEN "0001"=>s<="1000";WE<="1";Smux<="0";Exop<="0";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- lui		立即数左移
+			WHEN "0010"=>s<="0000";WE<="1";Smux<="0";Exop<="0";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- ori		逻辑或
+			WHEN "0011"=>s<="0001";WE<="1";Smux<="0";Exop<="0";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- andi	逻辑与
+			WHEN "0100"=>s<="0010";WE<="1";Smux<="0";Exop<="1";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- addi	算术加
+			WHEN "0101"=>s<="0010";WE<="1";Smux<="0";Exop<="1";Lmux<="1";pc_1<="1";jump<="0";R_tytle<="0"; -- lw		读
+			WHEN "0110"=>s<="0010";WE<="0";Smux<="0";Exop<="1";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- sw		写
+			
+			WHEN "0111"=>s<="0000";WE<="1";Smux<="0";Exop<="0";Lmux<="0";pc_1<="0";jump<="1";R_tytle<="0"; -- jump	直接跳转
+			WHEN "1000"=>s<="1101";WE<="1";Smux<="1";Exop<="0";Lmux<="0";pc_1<="0";jump<="0";R_tytle<="0"; -- halt	时钟停止
+			WHEN "1111"=>s<="1111";WE<="1";Smux<="0";Exop<="1";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- 加载数据
+			WHEN "1110"=>s<="1110";WE<="1";Smux<="0";Exop<="1";Lmux<="0";pc_1<="1";jump<="0";R_tytle<="0"; -- 加载数据
+			WHEN OTHERS=>s<="1101";	-- 其他清零
+		END CASE;
+	END PROCESS;
+END func; -- 结构体 结束

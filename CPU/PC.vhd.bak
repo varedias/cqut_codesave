@@ -1,0 +1,42 @@
+
+--	Author 	: 	LXB
+--	Time		:	2024/06/12
+--	Project	:	PC
+
+
+-- 导包
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY PC IS
+PORT(
+	clk 			: IN 		STD_LOGIC;	--	时钟
+	Reset 		: IN 		STD_LOGIC;	--	复位 复位时输入时钟可以开启时钟
+	LOAD_PC 		: IN 		STD_LOGIC;	-- 跳转选择	0	1
+	INCR_PC 		: IN 		STD_LOGIC;	--	跳转选择	1	0
+	Addr_val_in	: IN		STD_LOGIC_VECTOR(7 DOWNTO 0);	-- 地址输入
+	PC_out 		: INOUT 	STD_LOGIC_VECTOR(7 DOWNTO 0)	--	地址输出
+);
+END PC;
+
+-- 结构体 func
+ARCHITECTURE func OF PC IS
+	-- 变量声明 func
+
+-- 功能 func
+BEGIN
+	PROCESS(CLK,Reset,LOAD_PC,INCR_PC)	-- 进程 变量输入
+	BEGIN
+		IF Reset = '1' THEN
+			PC_out <= X"00";
+		ELSIF clk'event AND clk = '1' THEN
+			IF LOAD_PC = '0' AND INCR_PC = '1' THEN		--	不跳转 PC+1
+				PC_out <=PC_out+X"01";
+		   ELSIF LOAD_PC = '1' AND INCR_PC = '0' THEN	--	跳转 读地址
+		      PC_out <= Addr_val_in;
+		   END IF;
+		END IF;
+	END PROCESS;
+END func; 
+		  

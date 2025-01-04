@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx_FILE/cdp_ede_local-master/cdp_ede_local-master/dc_env/exp2/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Xilinx_FILE/cdp_ede_local-master/cdp_ede_local-master/dc_env/exp2/rf_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top

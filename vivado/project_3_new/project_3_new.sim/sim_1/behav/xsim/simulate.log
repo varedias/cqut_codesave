@@ -1,9 +1,0 @@
-Vivado Simulator 2019.2
-Time resolution is 1 ps
-Simulation Start
-BCD_in = 000000000000, seg0 = 0110000, seg1 = 1111110, seg2 = 1111110
-BCD_in = 000001001001, seg0 = 1111110, seg1 = 1011011, seg2 = 1111110
-BCD_in = 100110011001, seg0 = 1111110, seg1 = 1111110, seg2 = 1111110
-BCD_in = 010010010011, seg0 = 0110011, seg1 = 1111011, seg2 = 0110011
-BCD_in = 100110001111, seg0 = 1111110, seg1 = 1111111, seg2 = 1111011
-$finish called at time : 60 ns : File "E:/vivado/project_3_new/project_3_new.srcs/sim_1/new/tb_BCD_to_SevenSegment.v" Line 88

@@ -1,6 +1,0 @@
-Vivado Simulator 2019.2
-Time resolution is 1 ps
-=============================
-Test Begin
-TEST END
-$finish called at time : 641 ns : File "D:/Xilinx_FILE/cdp_ede_local-master/cdp_ede_local-master/dc_env/exp2/rf_tb.v" Line 123

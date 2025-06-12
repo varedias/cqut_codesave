@@ -1,0 +1,150 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+# Date created = 20:42:36  June 12, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		CPU_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY cpu
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:40:42  JUNE 15, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Standard Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_AA14 -to clock
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_location_assignment PIN_AE26 -to RQA1[0]
+set_location_assignment PIN_AE27 -to RQA1[1]
+set_location_assignment PIN_AE28 -to RQA1[2]
+set_location_assignment PIN_AG27 -to RQA1[3]
+set_location_assignment PIN_AF28 -to RQA1[4]
+set_location_assignment PIN_AH28 -to RQA1[6]
+set_location_assignment PIN_AG28 -to RQA1[5]
+set_location_assignment PIN_AJ29 -to RQA2[0]
+set_location_assignment PIN_AH29 -to RQA2[1]
+set_location_assignment PIN_AH30 -to RQA2[2]
+set_location_assignment PIN_AG30 -to RQA2[3]
+set_location_assignment PIN_AF29 -to RQA2[4]
+set_location_assignment PIN_AF30 -to RQA2[5]
+set_location_assignment PIN_AD27 -to RQA2[6]
+set_location_assignment PIN_AE29 -to RQB1[1]
+set_location_assignment PIN_AB23 -to RQB1[0]
+set_location_assignment PIN_AD29 -to RQB1[2]
+set_location_assignment PIN_AC28 -to RQB1[3]
+set_location_assignment PIN_AD30 -to RQB1[4]
+set_location_assignment PIN_AC29 -to RQB1[5]
+set_location_assignment PIN_AC30 -to RQB1[6]
+set_location_assignment PIN_AD26 -to RQB2[0]
+set_location_assignment PIN_AC27 -to RQB2[1]
+set_location_assignment PIN_AD25 -to RQB2[2]
+set_location_assignment PIN_AC25 -to RQB2[3]
+set_location_assignment PIN_AB28 -to RQB2[4]
+set_location_assignment PIN_AB25 -to RQB2[5]
+set_location_assignment PIN_AB22 -to RQB2[6]
+set_location_assignment PIN_AA24 -to RQC1[0]
+set_location_assignment PIN_Y23 -to RQC1[1]
+set_location_assignment PIN_Y24 -to RQC1[2]
+set_location_assignment PIN_W22 -to RQC1[3]
+set_location_assignment PIN_W24 -to RQC1[4]
+set_location_assignment PIN_V23 -to RQC1[5]
+set_location_assignment PIN_W25 -to RQC1[6]
+set_location_assignment PIN_V25 -to RQC2[0]
+set_location_assignment PIN_AA28 -to RQC2[1]
+set_location_assignment PIN_Y27 -to RQC2[2]
+set_location_assignment PIN_AB27 -to RQC2[3]
+set_location_assignment PIN_AB26 -to RQC2[4]
+set_location_assignment PIN_AA26 -to RQC2[5]
+set_location_assignment PIN_AA25 -to RQC2[6]
+set_location_assignment PIN_AD10 -to RST
+set_location_assignment PIN_V18 -to S[3]
+set_location_assignment PIN_V17 -to S[2]
+set_location_assignment PIN_W16 -to S[1]
+set_location_assignment PIN_V16 -to S[0]
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "D:/FPGA/work/Curriculum_design/simulation/qsim/" -section_id eda_simulation
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name SOURCE_FILE ROM.cmp
+set_global_assignment -name SOURCE_FILE RAM.cmp
+set_global_assignment -name SOURCE_FILE LPM4_16.cmp
+set_global_assignment -name SOURCE_FILE LPM2_8.cmp
+set_global_assignment -name SOURCE_FILE LPM2_4.cmp
+set_global_assignment -name SOURCE_FILE LPM2_2.cmp
+set_global_assignment -name SOURCE_FILE LPM2_16.cmp
+set_global_assignment -name QIP_FILE ROM.qip
+set_global_assignment -name QIP_FILE RAM.qip
+set_global_assignment -name QIP_FILE LPM4_16.qip
+set_global_assignment -name QIP_FILE LPM2_8.qip
+set_global_assignment -name QIP_FILE LPM2_4.qip
+set_global_assignment -name QIP_FILE LPM2_2.qip
+set_global_assignment -name QIP_FILE LPM2_16.qip
+set_global_assignment -name BDF_FILE CPU.bdf
+set_global_assignment -name VHDL_FILE seg7_16b.vhd
+set_global_assignment -name VHDL_FILE RegiSlect.vhd
+set_global_assignment -name VHDL_FILE PC.vhd
+set_global_assignment -name VHDL_FILE LPM2_8.vhd
+set_global_assignment -name VHDL_FILE LPM2_4.vhd
+set_global_assignment -name VHDL_FILE Extender.vhd
+set_global_assignment -name VHDL_FILE Decoder2.vhd
+set_global_assignment -name VHDL_FILE Decoder1.vhd
+set_global_assignment -name VHDL_FILE CPU.vhd
+set_global_assignment -name VHDL_FILE ALU.vhd
+set_global_assignment -name BDF_FILE cpu.bdf
+set_global_assignment -name VHDL_FILE AC_A.vhd
+set_global_assignment -name VHDL_FILE double.vhd
+set_global_assignment -name QIP_FILE lpm_4.qip
+set_global_assignment -name VHDL_FILE Decd.vhd
+set_global_assignment -name VHDL_FILE ALU_16B.vhd
+set_global_assignment -name QIP_FILE LPM_16.qip
+set_global_assignment -name VHDL_FILE R_DECD.vhd
+set_global_assignment -name VHDL_FILE op_do.vhd
+set_global_assignment -name MIF_FILE cpu_rom.mif
+set_global_assignment -name QIP_FILE lpm16.qip
+set_global_assignment -name QIP_FILE lpm8.qip
+set_global_assignment -name MIF_FILE cpu_ram.mif
+set_global_assignment -name QIP_FILE lpm33.qip
+set_global_assignment -name QIP_FILE R_decoder.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE test1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE test2.vwf
+set_global_assignment -name VHDL_FILE output_files/Digital.vhd
+set_location_assignment PIN_AE12 -to BLANKTEST
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,0 +1,52 @@
+
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+ENTITY ALU IS
+	PORT(
+		S 	: IN 	STD_LOGIC_VECTOR (3 DOWNTO 0 );	-- 数位选择 s3 s2 s1 s0 
+		A 	: IN 	STD_LOGIC_VECTOR (15 DOWNTO 0);	
+		B 	: IN 	STD_LOGIC_VECTOR (15 DOWNTO 0);	 
+		F 	: OUT STD_LOGIC_VECTOR (15 DOWNTO 0);	
+		CO : OUT STD_LOGIC   							
+	);
+END ALU;
+
+
+ARCHITECTURE BEHAVE OF ALU IS
+	-- 变量声明 func 
+	SIGNAL A9 : STD_LOGIC_VECTOR (16 DOWNTO 0);	-- 最高位 判断是否有溢出的
+	SIGNAL B9 : STD_LOGIC_VECTOR (16 DOWNTO 0);
+	SIGNAL F9 : STD_LOGIC_VECTOR (16 DOWNTO 0);
+
+-- 实体 ALU
+BEGIN
+	A9 <= '0' & A ; 
+	B9 <= '0' & B ;
+	PROCESS ( A9, B9)
+	BEGIN 
+		CASE S IS
+			WHEN "0000" => F9 <= (A9 OR B9);			-- 或运算
+			WHEN "0001" => F9 <= (A9 AND B9);		-- 与运算
+			WHEN "0010" => F9 <= (A9 + B9);			-- 加法运算
+			WHEN "0011" => F9 <= (A9 - B9);			-- 减法运算
+			WHEN "0100" => F9 <= TO_STDLOGICVECTOR(TO_BITVECTOR(A9) SLL CONV_INTEGER(B9));-- 逻辑左移
+			WHEN "0101" => F9 <= TO_STDLOGICVECTOR(TO_BITVECTOR(A9) SRL CONV_INTEGER(B9));-- 逻辑右移
+			WHEN "0110" => F9 <= TO_STDLOGICVECTOR(TO_BITVECTOR(A9) SRA CONV_INTEGER(B9));-- 算数右移
+			WHEN "0111" => 
+				IF A9 > B9 THEN F9 <= A9;
+				ELSE F9 <= B9;	END IF;																		-- (a>b)?a:b
+			WHEN "1000" => F9 <= TO_STDLOGICVECTOR(TO_BITVECTOR(B9) SLL 8);					-- 逻辑左移8位
+			
+			WHEN "1111" => F9 <= "00000000001101011";		-- 用于加载数据 6B
+
+			WHEN "1110" => F9 <= "00000000000000011";		-- 用于加载数据 03
+
+			WHEN OTHERS => F9 <= "00000000000000000";		--	初始化清零
+		END CASE; 
+	END PROCESS;
+	F <= F9(15 DOWNTO 0); 	-- 结果输出
+	CO <= F9(16);				-- 进位输出 
+END BEHAVE; -- 结构体 结束

@@ -1,5 +1,5 @@
-# 分支master 里面是完整的无删除版本，必须使用18 quartus！！！
-*** 破解器在crack里面
+# 分支master 里面是完整的无删除版本，必须使用18 quartus！！！  
+## 破解器在crack里面
 
 
 

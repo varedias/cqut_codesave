@@ -1,0 +1,22 @@
+#首先要安装好Quartus Prime Standard和/或Pro 18.0软件：
+
+
+# 第一步： 把Quartus_18.0破解器.exe复制到C:\intelFPGA\18.0\quartus\bin64和/或C:\intelFPGA_Pro\18.0\quartus\bin64下运行(你的安装目录也许和这个不一样)，也就是说把它和quartus.exe放在同一个文件夹里面。双击运行！此破解器会自动识别Quartus 18.0是Standard版还是Pro版，然后自动破解。
+# 第二步： 把license.dat里的XXXXXXXXXXXX 用你的网卡号替换(在Quartus Prime 18.0的Tools菜单下选择License Setup，下面就有NIC ID，选择第一个或者第二个都行)。
+# 第三步： 在Quartus Prime 18.0的Tools菜单下选择License Setup，然后选择License file，最后点击OK。
+
+#注意：license文件存放的路径名称不能包含汉字和空格，空格可以用下划线代替。
+#对于绝大部分用户来说，不需要破解ModelSim，大家可以用免费的ModelSim-Altera Starter Edition，也就是入门版，可以仿真一万行可执行代码（这一万行是指不包括注释，纯的代码）。只有非常大的设计才需要用ModelSim-Altera Edition或者ModelSim-SE版，这2种版本才需要破解，破解器自己搜索，本人不提供。
+
+
+常见的破解问题解答：
+
+1. 编译时出现红色错误：Current license file does not support the xxxxxx device。这是没有破解成功的问题。
+第一种可能性：dll文件没有被修改成功，可以从Quartus启动时有没有骏龙的标志看出来，请关闭杀毒软件重新破解一次。
+第二种可能性：修改license文件里面的网卡号时没有注意格式，例如网卡号后面缺了一个空格或者网卡号里面有几个“-”等等。
+2. 破解器被禁止访问dll文件或者找不到dll文件，这是因为Quartus没有被关闭或者没有被彻底关闭，解决方法是关闭之或者杀死还在运行的和Quartus有关的进程，如果你不会杀进程，只好重新启动Windows再次破解了。
+
+备注：
+#因为此破解器软件属于“修改别的软件的软件”，所以在某些杀毒软件下运行，也许被误认为是“病毒”，这是杀毒软件智能化程度不够的原因，破解前只能暂时关闭之，破解后再打开。
+#仅限于学习,不要用于商业目的! 严禁贴到网上！！！
+#Quartus II从14.0开始只有64位版本了，此破解器在Windows 7、8.1和10的64位操作系统下验证过了，没有问题！Windows XP、Vista和8因为微软都放弃了，所以没有验证，理论上64位的XP、Vista和8也许可以正常使用，不过还是尽量用64位的Windows 7或者8.1。

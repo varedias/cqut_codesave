@@ -1,0 +1,16 @@
+1. 2002年，Altera关闭了Quartus II的license文件里面的HOSTID=ANY的选项。
+
+2. 2003年，Altera的Quartus II开始采用包含4个seed的256位AES加密算法，理论上已经无法正向破解了。
+
+3. 2006年，Altera的Quartus II增加了64位版本，另外从Stratix III系列开始也采用了上面的加密算法。
+
+4. 2008年，Altera把IP集成在Quartus II软件安装包中，并且开始逐步采用JAVA对IP进行加密。
+
+5. 2010年，Altera再次对其采用的256位AES加密算法进行改进，同时扩展到DSP Builder Advance。
+
+6. 2012年，ARM公司配合Altera推出了Altera版本的DS-5，同时进行了某些有针对性的加密。
+
+7. 2014年，Altera把Quartus II加密点分散到4个文件，其中2个dll是针对Quartus II，另外2个文件针对IP。
+
+8. 未来......
+

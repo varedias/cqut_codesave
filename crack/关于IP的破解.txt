@@ -1,0 +1,26 @@
+Altera的IP分2种：
+
+一种是免费的IP，不需要另外的license，就是所谓的Basic Function的IP，例如浮点运算、普通运算、三角函数、基本的存储器IP、配置功能IP、PLL、所有的桥以及所有的FPGA内部的硬核以及NIOS II（不含源码）等等。
+另外一种是收费IP，需要购买单独的IP的license，例如各种以太网软IP、PCI-E软IP、CPRI、Interlaken、PCI、RapidIO和所有的几十个视频图像IP以及所有的DDR1/2/3/4软IP、256位AES硬件加密等等。
+
+
+本破解器仅破解Quartus II软件本身所有的功能对应的2个dll，另外2个用于加密IP的文件跳过了，Quartus II软件本身集成的所有的免费IP都可以使用，没有任何限制。从2008年开始，Altera的收费IP不仅仅在IP源码中增加了计数器等等功能限制代码，而且逐步采用了美国国防部的256位AES加上JAVA和python语言混合加密，最近几年又把Quartus II的fitter流程和IP的license相关联，对使用破解版的IP license的用户制造时序陷阱。
+
+使用破解IP license的用户可以通过时序优化、Logiclock、时序优化助手等等来解决陷阱，但是如果使用了那些混合加密的IP，甚至连IP的图形界面都无法启动，当然IP的参数也就无法设置了，这种混合加密的IP越来越多，不仅仅是本文最下面的几十个视频图像类IP（14.0以后的版本在Qsys里面），甚至已经扩展到接口类和信号处理类的一部分IP了。大家可以试试本文最下面的IP，就属于混合加密的，不仅仅是这些IP，其它还有一些IP也是这样，其实源码中加入时序陷阱的IP也不是那么容易优化的。另外Altera第三方IP公司的IP大部分也是用Altera提供的加密工具进行混合加密的，情况和Altera一样。
+
+
+本人可以破解所有的收费IP对应的另外2个文件，但是收到了骏龙科技和更高层大佬的建议，他们的意思是没有破解器会影响Altera器件部门的销售，但如果把收费IP都破解了，会影响Altera公司IP部门的利益，激怒IP部门所有的人。本人为了规避风险，破解器运行时只破解2个基本文件，跳过另外2个文件。
+
+
+解决方法：
+
+1. 有钱的单位找骏龙科技购买长期限正版IP的License。
+2. 不愿意花钱买正版的大客户，骏龙科技会买正版IP license免费送（或者低价卖）给大客户。
+3. 不愿意花钱买正版的小客户，如果在骏龙科技买过一些东西，可以免费拿到2-3个月期限的正版IP license，用户必须在2-3个月内完成设计，不过有一部分IP的License，骏龙科技的人也无法免费搞来。
+4. 不愿意花钱买正版的小客户，如果没有从骏龙科技买过东西，也没有认识的亲戚朋友、同学等等，可以通过上面2和3的用户内部的人搞来，如果还没有办法，想办法认识骏龙内部的人，或者用破解的IP license多做时序优化避开时序陷阱，如果遇到混合加密的IP，就没有办法了。但是无论如何，都不要找我要。
+
+
+
+
+一部分混合加密的IP列表：
+2D FIR FIlter, Alpha Blending Mixer, Chroma Resampler, Clipper/II, Clocked Video Input & Output/II, Color Plane Sequencer, Color Space Converter/II, Control Sequencer, Deinterlacer/II, Broadcast Deinterlacer, Frame Buffer/II, Frame Reader, Gamma Corrector, Mixer II, Scaler II, Switch/II, Test Pattern Generator/II, Avalon ST-Monitor, Trace System, 2D Median Filter .
